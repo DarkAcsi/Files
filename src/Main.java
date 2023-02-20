@@ -19,7 +19,7 @@ public class Main {
             file2 = new File(str);
             if (!(f.open_file(file2,Methods.PATH))){continue;}
             if (!f.open_file(file2,Methods.TXT)){continue;}
-            if (!f.open_file(file2,Methods.EXIST) || !f.open_file(file2,Methods.WRITE)){continue;}
+            if (f.open_file(file2,Methods.EXIST) && !f.open_file(file2,Methods.WRITE)){continue;}
             break;
         }
         // Считывание и запись

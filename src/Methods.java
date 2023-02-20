@@ -4,14 +4,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 /**
  * Класс направлен на проверку файлов по определенным критериям и его простой анализ с записью результатов
- * @author DarkAcsi
  */
 public class Methods {
-    /** Переменные константы для метода open_file */
+    /**Константа проверки пути*/
     public static final int PATH = 0;
+    /**Константа проверки на возможность чтения*/
     public static final int READ = 1;
+    /**Константа проверки на возможность записи*/
     public static final int WRITE = 2;
+    /**Константа проверки на существование файла*/
     public static final int EXIST = 3;
+    /**Константа проверки расширения .txt*/
     public static final int TXT = 4;
     /**
      * Проверяет по пути, является ли файл текстовым
@@ -30,7 +33,7 @@ public class Methods {
      * @param index определяет какой метод нужен (константы: PATH, READ, WRITE, EXIST, TXT)
      * @return true - условие выполнено, false - нет
      */
-    boolean open_file(File f, int index){
+    public boolean open_file(File f, int index){
         try {
             switch (index) {
                 case PATH:
