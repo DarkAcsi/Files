@@ -26,6 +26,9 @@ jobs:
       uses: actions/setup-java@v3
       with:
         name: app
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
         path: ${{ env.app_name }}
         retention-days: 3
         
