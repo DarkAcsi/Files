@@ -4,13 +4,21 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  build_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      app_name: files_${{ env.app_name }}
+      
     permissions:
       contents: read
       packages: write
