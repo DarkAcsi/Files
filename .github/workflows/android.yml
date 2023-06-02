@@ -22,14 +22,10 @@ jobs:
       run: ls ~
       
     - uses: actions/checkout@v3
-    - name: set up JDK 11
+    - name: build
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: gradle
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+        name: app
+        path: ${{ env.app_name }}
+        retention-days: 3
+        
